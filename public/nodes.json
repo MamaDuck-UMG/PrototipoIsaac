@@ -1,0 +1,34 @@
+{
+	"nodes": [
+		{
+			"name": "Node 1",
+			"status": "active"
+		},
+		{
+			"name": "Node 2",
+			"status": "active"
+		},
+		{
+			"name": "Node 3",
+			"status": "active"
+		},
+		{
+			"name": "Node 4",
+			"status": "inactive"
+		}
+	],
+	"links": [
+		{
+			"source": "Node 1",
+			"target": "Node 2"
+		},
+		{
+			"source": "Node 2",
+			"target": "Node 3"
+		},
+		{
+			"source": "Node 4",
+			"target": "Node 1"
+		}
+	]
+}

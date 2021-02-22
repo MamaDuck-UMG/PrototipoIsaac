@@ -1,0 +1,3 @@
+# MamaDuck
+
+Graphic Interface
