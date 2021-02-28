@@ -1,8 +1,16 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-
+var mysql = require('mysql');
 const app = express();
+require('dotenv').config();
+
+var connection = mysql.createConnection({
+	host: process.env.HOST,
+	user: process.env.USER,
+	password: process.env.PASS,
+	database: process.env.DB,
+});
 
 let port = process.env.PORT || 8080;
 
@@ -13,7 +21,19 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
+connection.connect();
+
+app.get('/', function (req, res) {
+	connection.query('SELECT * FROM users', function (err, row, field) {
+		if (!!err) {
+			console.log('ERROR');
+		} else {
+			res.render('auth.htm');
+		}
+	});
+});
+
+app.get('/admin', (req, res) => {
 	res.render('index.htm');
 });
 
