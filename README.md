@@ -1,3 +1,3 @@
-# MamaDuck
+# Mama Duck
 
-Graphic Interface
+## Graphic Interface
