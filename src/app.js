@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 
 app.use(
 	session({
-		secret: 'faztmysqlnodemysql',
+		secret: 'mamaducktopsecrettoken',
 		resave: false,
 		saveUninitialized: false,
 		store: new MySQLStore(database),
