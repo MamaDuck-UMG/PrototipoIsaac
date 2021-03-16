@@ -7,22 +7,21 @@
 				</thead>
 					<tr class="header-table">
 						<th>Fecha</th>
-						<th>Hora</th>
 						<th>Lugar</th>
 						<th>Emergencia</th>
 						<th>Necesidad</th>
 						<th>Mensaje</th>
-						<th>Estado de Nodos</th>
+						{{!-- <th>Estado de Nodos</th> --}}
 					</tr>
 				<body>
+					{{#each history}}
 					<tr>
-						<td>4/29/2020</td>
-						<td>13:21</td>
-						<td>Galerias</td>
-						<td>Terremoto</td>
-						<td>Evacuacion</td>
-						<td>Atrapado debajo de un mueble</td>
-						<td rowspan="2" class="nodes">
+						<th>{{date}}</th>
+						<th>{{place}}</th>
+						<th>{{emergency}}</th>
+						<th>{{need}}</th>
+						<th>{{message}}</th>
+						{{!-- <td rowspan="2" class="nodes">
 							<span class="dot"></span>
 							Nodo Madre <br />
 							<span class="dot"></span> 
@@ -31,29 +30,9 @@
 							Nodo 2 <br />
 							<span class="dot-bad"></span> 
 							Nodo 3
-						</td>
+						</td> --}}
 					</tr>
-					<tr>
-						<td>4/29/2020</td>
-						<td>13:21</td>
-						<td>Galerias</td>
-						<td>Terremoto</td>
-						<td>Evacuacion</td>
-						<td>Atrapado debajo de un mueble</td>
-					</tr>
-					<tr>
-						<td>4/29/2020</td>
-						<td>13:21</td>
-						<td>Galerias</td>
-						<td>Terremoto</td>
-						<td>Evacuacion</td>
-						<td>Atrapado debajo de un mueble</td>
-						<td>
-							<button class="desconectar">
-								<a href="#">Desconectar Red</a>
-							</button>
-						</td>
-					</tr>
+					{{/each}}
 				</tbody>
 			</table>
 		</div>
