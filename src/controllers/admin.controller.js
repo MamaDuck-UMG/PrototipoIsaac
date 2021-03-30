@@ -22,6 +22,7 @@ adminsCtrl.addAdmin = async (req, res) => {
 
 adminsCtrl.renderAdmins = async (req, res) => {
 	const admin = await pool.query('SELECT * FROM users', [req.user.id]);
+	console.log(admin);
 	res.render('admin/list', { admin });
 };
 
