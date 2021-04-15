@@ -58,8 +58,6 @@ app.use((req, res, next) => {
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/auth.routes'));
 app.use(require('./routes/user.routes'));
-app.use(require('./routes/nodes.routes'));
-app.use(require('./routes/history.routes'));
 app.use('/admin', require('./routes/admin.routes'));
 
 // Public

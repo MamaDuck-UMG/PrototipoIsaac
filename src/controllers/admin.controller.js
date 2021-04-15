@@ -52,4 +52,13 @@ adminsCtrl.editAdmin = async (req, res) => {
 	res.redirect('/admin');
 };
 
+adminsCtrl.renderHistory = async (req, res) => {
+	const history = await pool.query('SELECT * FROM history');
+	res.render('admin/history', { history });
+};
+
+adminsCtrl.renderNodes = (req, res) => {
+	res.render('admin/nodes');
+};
+
 module.exports = adminsCtrl;

@@ -10,6 +10,8 @@ const {
 	deleteAdmin,
 	editAdmin,
 	renderEditAdmin,
+	renderHistory,
+	renderNodes,
 } = require('../controllers/admin.controller');
 
 // Authorization
@@ -22,5 +24,8 @@ router.get('/', isLoggedIn, renderAdmins);
 router.get('/delete/:id', deleteAdmin);
 router.get('/edit/:id', renderEditAdmin);
 router.post('/edit/:id', editAdmin);
+
+router.get('/history', renderHistory);
+router.get('/nodes', renderNodes);
 
 module.exports = router;
