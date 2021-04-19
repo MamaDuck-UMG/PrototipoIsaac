@@ -12,6 +12,8 @@ const {
 	renderEditAdmin,
 	renderHistory,
 	renderNodes,
+	renderSignUp,
+	signUp,
 } = require('../controllers/admin.controller');
 
 // Authorization
@@ -27,5 +29,8 @@ router.post('/edit/:id', editAdmin);
 
 router.get('/history', renderHistory);
 router.get('/nodes', renderNodes);
+
+router.get('/signup', renderSignUp);
+router.post('/signup', signUp);
 
 module.exports = router;

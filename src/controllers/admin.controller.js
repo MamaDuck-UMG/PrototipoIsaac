@@ -2,6 +2,7 @@ const adminsCtrl = {};
 
 const pool = require('../database');
 const helpers = require('../lib/helpers');
+const passport = require('passport');
 
 adminsCtrl.renderAddAdmin = (req, res) => {
 	res.render('admin/add');
@@ -60,5 +61,15 @@ adminsCtrl.renderHistory = async (req, res) => {
 adminsCtrl.renderNodes = (req, res) => {
 	res.render('admin/nodes');
 };
+
+adminsCtrl.renderSignUp = (req, res) => {
+	res.render('auth/signup');
+};
+
+adminsCtrl.signUp = passport.authenticate('local.signup', {
+	successRedirect: '/profile',
+	failureRedirect: '/signup',
+	failureFlash: true,
+});
 
 module.exports = adminsCtrl;
