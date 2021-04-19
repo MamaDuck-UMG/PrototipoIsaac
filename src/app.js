@@ -68,4 +68,8 @@ app.use('/admin', require('./routes/admin.routes'));
 // Public
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function (req, res) {
+	res.render('404');
+});
+
 module.exports = app;
