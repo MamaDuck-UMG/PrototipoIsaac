@@ -7,12 +7,17 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
+const Handlebars = require('handlebars');
 
 const { database, port } = require('./config');
 
 // Intializations
 const app = express();
 require('./lib/passport');
+
+Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
+	return arg1 == arg2 ? options.fn(this) : options.inverse(this);
+});
 
 // Settings
 app.set('port', port);
