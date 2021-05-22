@@ -7,8 +7,8 @@ formsCtrl.renderAddForm = (req, res) => {
 
 formsCtrl.addForm = async (req, res) => {
 	let { emergency } = req.body;
-	// status = true;
-	// active = status;
+	status = true;
+	active = status;
 	const node = 1;
 	const cookies = req.cookies.cookieName;
 	console.log(cookies);
@@ -19,7 +19,7 @@ formsCtrl.addForm = async (req, res) => {
 		emergency,
 		node,
 		cookies,
-		// active,
+		active,
 	};
 	await pool.query('INSERT INTO history set ?', newForm);
 	res.redirect('/form');
