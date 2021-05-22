@@ -12,6 +12,15 @@ authCtrl.signIn = passport.authenticate('local.signin', {
 	failureFlash: true,
 });
 
+authCtrl.renderSignUp = (req, res, next) => {
+	res.render('auth/signup');
+};
+
+authCtrl.signUp = passport.authenticate('local.signup', {
+	successRedirect: '/profile',
+	failureFlash: true,
+});
+
 authCtrl.logout = (req, res, next) => {
 	req.logOut();
 	res.redirect('/');

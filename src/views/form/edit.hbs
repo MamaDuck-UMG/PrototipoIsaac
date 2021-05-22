@@ -1,0 +1,49 @@
+<div class='container p-9'>
+	<div class='row'>
+		<div class='col-md-6 mx-auto'>
+			<div class='card'>
+				<div class='card-body'>
+					<form action='/form/edit/{{sentForm.id}}' method='POST'>
+						<h3>Help is on the way!</h3>
+						<h5>Additional information</h5>
+						<div class='form-group'>
+							<h6>Where are you at?</h6>
+							<input
+								type='text'
+								name='place'
+								class='form-input'
+								placeholder='Place'
+								value='{{sentForm.place}}'
+								autofocus
+							/>
+						</div>
+						<div class='form-group'>
+							<h6>What do you need?</h6>
+							<input
+								type='text'
+								name='need'
+								class='form-input'
+								placeholder='Need'
+								value='{{sentForm.need}}'
+								autofocus
+							/>
+						</div>
+						<div class='form-group'>
+							<h6>Message:</h6>
+							<textarea
+								type='text'
+								name='message'
+								rows='2'
+								class='form-input'
+								placeholder='Message'
+							>{{sentForm.message}}</textarea>
+						</div>
+						<div class='form-group'>
+							<input class='btn-submit' type='submit' value='Send' />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

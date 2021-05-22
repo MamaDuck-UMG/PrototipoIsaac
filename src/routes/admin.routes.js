@@ -10,8 +10,6 @@ const {
 	deleteAdmin,
 	editAdmin,
 	renderEditAdmin,
-	renderHistory,
-	renderNodes,
 	renderSignUp,
 	signUp,
 } = require('../controllers/admin.controller');
@@ -26,9 +24,6 @@ router.get('/', isLoggedIn, renderAdmins);
 router.get('/delete/:id', deleteAdmin);
 router.get('/edit/:id', renderEditAdmin);
 router.post('/edit/:id', editAdmin);
-
-router.get('/history', renderHistory);
-router.get('/nodes', renderNodes);
 
 router.get('/signup', renderSignUp);
 router.post('/signup', signUp);

@@ -1,24 +1,48 @@
-<div class="container p-4">
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <div class="card text-center">
-                <div class="card-body">
-                    <h3>Welcome {{user.username}}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section>
-        <div class="main-image">
-            <img src="/img/duck.png" width="300" height="285" />
-        </div>
-        <div class="container">
-            <button class="btn btn-primary m-4">
-                <a href="/admin/nodes">Nodos</a>
-            </button>
-            <button class="btn btn-primary m-4">
-                <a href="/admin/history">Historial</a>
-            </button>
-        </div>
-    </section>
+<div class='container p-4'>
+	<div class='row'>
+		<div class='col-md-4 mx-auto'>
+			<div class='card text-center'>
+				<div class='card-body'>
+					<h3>Welcome {{user.username}}</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<section>
+		<div class='container'>
+			<div class='canvas-container'>
+				<canvas id='network' width='2000' height='580'></canvas>
+			</div>
+			<script src='/js/nodes.js'></script>
+		</div>
+		<h4>Call history</h4>
+		<div class='container'>
+			<table id='datatable' class='table table-dark' style='width:100%'>
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Lugar</th>
+						<th>Emergencia</th>
+						<th>Necesidad</th>
+						<th>Mensaje</th>
+						<th>Nodo</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each history}}
+						<tr>
+							<th>{{date}}</th>
+							<th>{{place}}</th>
+							<th>{{emergency}}</th>
+							<th>{{need}}</th>
+							<th>{{message}}</th>
+							<th>{{node}}</th>
+						</tr>
+					{{/each}}
+				</tbody>
+				<tfoot>
+				</tfoot>
+			</table>
+		</div>
+	</section>
 </div>

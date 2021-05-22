@@ -23,7 +23,6 @@ adminsCtrl.addAdmin = async (req, res) => {
 
 adminsCtrl.renderAdmins = async (req, res) => {
 	const admin = await pool.query('SELECT * FROM users', [req.user.id]);
-	console.log(admin);
 	res.render('admin/list', { admin });
 };
 
@@ -37,7 +36,6 @@ adminsCtrl.deleteAdmin = async (req, res) => {
 adminsCtrl.renderEditAdmin = async (req, res) => {
 	const { id } = req.params;
 	const admin = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
-	console.log(admin);
 	res.render('admin/edit', { admin: admin[0] });
 };
 
@@ -51,15 +49,6 @@ adminsCtrl.editAdmin = async (req, res) => {
 	await pool.query('UPDATE users set ? WHERE id = ?', [newAdmin, id]);
 	req.flash('success', 'Admin Updated Successfully');
 	res.redirect('/admin');
-};
-
-adminsCtrl.renderHistory = async (req, res) => {
-	const history = await pool.query('SELECT * FROM history');
-	res.render('admin/history', { history });
-};
-
-adminsCtrl.renderNodes = (req, res) => {
-	res.render('admin/nodes');
 };
 
 adminsCtrl.renderSignUp = (req, res) => {

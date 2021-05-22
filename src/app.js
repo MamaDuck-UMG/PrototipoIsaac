@@ -7,12 +7,14 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const Handlebars = require('handlebars');
 
 const { database, port } = require('./config');
 
 // Intializations
 const app = express();
+require('./lib/cookies');
 require('./lib/passport');
 
 Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
@@ -38,6 +40,7 @@ app.set('view engine', '.hbs');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 app.use(
 	session({
@@ -63,7 +66,9 @@ app.use((req, res, next) => {
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/auth.routes'));
 app.use(require('./routes/user.routes'));
+app.use(require('./routes/index.routes'));
 app.use('/admin', require('./routes/admin.routes'));
+app.use('/form', require('./routes/form.routes'));
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));

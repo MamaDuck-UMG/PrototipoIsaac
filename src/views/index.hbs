@@ -1,4 +1,4 @@
-<main class="index">
+{{! <main class="index">
     <header class="masthead d-flex">
         <div class="container text-center my-auto">
             <h1 class="mb-1">MAMA DUCK</h1>
@@ -11,4 +11,63 @@
         </div>
         <div class="overlay"></div>
     </header>
-</main>
+</main> }}
+<div class='container p-9'>
+	<div class='row'>
+		<div class='col-md-6 mx-auto'>
+			<div class='card'>
+				<div class='card-body'>
+					<h2>Location:</h2>
+					<div id='map-template'></div>
+					<form action='/form/add' method='POST'>
+						<h2>What is your emergency?</h2>
+						<div class='img-btn'>
+							<button
+								type='submit'
+								class='btn-form'
+								name='emergency'
+								value='Medic'
+							><img
+									src='img/Medic_en.png'
+									class='btn-form'
+									alt='Submit'
+								/></button>
+							<button
+								type='submit'
+								class='btn-form'
+								name='emergency'
+								value='SOS'
+							><img
+									src='img/SOS_en.png'
+									class='btn-form'
+									alt='Submit'
+								/></button>
+						</div>
+						<div class='img-btn'>
+							<button
+								type='submit'
+								class='btn-form'
+								name='emergency'
+								value='Fire'
+							><img
+									src='img/Fire_en.png'
+									class='btn-form'
+									alt='Submit'
+								/></button>
+							<button
+								type='submit'
+								class='btn-form'
+								name='emergency'
+								value='Flood'
+							><img
+									src='img/Flood_en.png'
+									class='btn-form'
+									alt='Submit'
+								/></button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
