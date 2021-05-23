@@ -12,11 +12,39 @@ map.on('locationfound', (e) => {
 	socket.emit('userCoordinates', e.latlng);
 });
 
+const geoJson = '/json/geojson.json';
+
+fetch(geoJson)
+	.then((res) => res.json())
+	.then((data) => {
+		L.geoJSON(data).addTo(map);
+	});
+
 socket.on('newUserConnected', (coords) => {
 	const marker = L.marker([coords.lat, coords.lng]);
 	marker.bindPopup('New User!');
 	map.addLayer(marker);
 });
+
+longit = document.getElementsByTagName('p');
+latit = document.getElementsByTagName('h1');
+coordiLat = [];
+coordiLng = [];
+Array.from(latit).forEach((item, i) => (coordiLat[i] = item.innerHTML));
+Array.from(longit).forEach((item, i) => (coordiLng[i] = item.innerHTML));
+
+const feature = {
+	type: 'Feature',
+	geometry: {
+		type: 'Point',
+		coordinates: [parseFloat(coordiLng[0]), parseFloat(coordiLat[0])],
+	},
+	properties: {
+		prop0: 'value0',
+	},
+};
+console.log(feature);
+featureJ = JSON.stringify(feature);
 
 function geoFindMe() {
 	const lat = document.querySelector('#lat');
@@ -31,13 +59,12 @@ function geoFindMe() {
 	}
 
 	function error() {
-		lat.textContent = 'Unable to retrieve your location';
+		alert('Unable to retrieve your location');
 	}
 
 	if (!navigator.geolocation) {
-		lat.textContent = 'Geolocation is not supported by your browser';
+		alert('Geolocation is not supported by your browser');
 	} else {
-		lat.textContent = 'Locating…';
 		navigator.geolocation.getCurrentPosition(success, error);
 	}
 }
