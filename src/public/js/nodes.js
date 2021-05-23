@@ -17,7 +17,7 @@ r = 20;
 			})
 		));
 
-d3.json('/nodes/nodes.json', function (err, graph) {
+d3.json('/json/nodes.json', function (err, graph) {
 	if (err) throw err;
 	simulation.nodes(graph.nodes);
 	simulation.force('link').links(graph.links);
