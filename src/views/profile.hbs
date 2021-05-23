@@ -10,12 +10,9 @@
 	</div>
 	<section>
 		<div class='container'>
-			<div class='canvas-container'>
-				<canvas id='network' width='2000' height='580'></canvas>
-			</div>
-			<script src='/js/nodes.js'></script>
+			<div id='map-template'></div>
 		</div>
-		<h4>Call history</h4>
+		<h6>Call history</h6>
 		<div class='container'>
 			<table id='datatable' class='table table-dark' style='width:100%'>
 				<thead>
@@ -25,7 +22,8 @@
 						<th>Emergencia</th>
 						<th>Necesidad</th>
 						<th>Mensaje</th>
-						<th>Nodo</th>
+						<th>Latitud</th>
+						<th>Longitud</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,7 +34,8 @@
 							<th>{{emergency}}</th>
 							<th>{{need}}</th>
 							<th>{{message}}</th>
-							<th>{{node}}</th>
+							<th>{{lati}}</th>
+							<th>{{lngi}}</th>
 						</tr>
 					{{/each}}
 				</tbody>

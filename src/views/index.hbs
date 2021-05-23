@@ -17,6 +17,8 @@
 		<div class='col-md-6 mx-auto'>
 			<div class='card'>
 				<div class='card-body'>
+					<button class='btn btn-danger' id='find-me'>Permitir ubicacion</button>
+					<a id='map-link' target='_blank'></a>
 					<h2>Location:</h2>
 					<div id='map-template'></div>
 					<form action='/form/add' method='POST'>
@@ -24,47 +26,61 @@
 						<div class='img-btn'>
 							<button
 								type='submit'
-								class='btn-form'
+								id='btn-form'
 								name='emergency'
 								value='Medic'
 							><img
 									src='img/Medic_en.png'
-									class='btn-form'
+									id='btn-form'
 									alt='Submit'
 								/></button>
 							<button
 								type='submit'
-								class='btn-form'
+								id='btn-form'
 								name='emergency'
 								value='SOS'
 							><img
 									src='img/SOS_en.png'
-									class='btn-form'
+									id='btn-form'
 									alt='Submit'
 								/></button>
 						</div>
 						<div class='img-btn'>
 							<button
 								type='submit'
-								class='btn-form'
+								id='btn-form'
 								name='emergency'
 								value='Fire'
 							><img
 									src='img/Fire_en.png'
-									class='btn-form'
+									id='btn-form'
 									alt='Submit'
 								/></button>
 							<button
 								type='submit'
-								class='btn-form'
+								id='btn-form'
 								name='emergency'
 								value='Flood'
 							><img
 									src='img/Flood_en.png'
-									class='btn-form'
+									id='btn-form'
 									alt='Submit'
 								/></button>
 						</div>
+						<textarea
+							name='lati'
+							id='lat'
+							cols='20'
+							rows='1'
+							style='display:none;'
+						></textarea>
+						<textarea
+							name='lngi'
+							id='lng'
+							cols='20'
+							rows='1'
+							style='display:none;'
+						></textarea>
 					</form>
 				</div>
 			</div>
