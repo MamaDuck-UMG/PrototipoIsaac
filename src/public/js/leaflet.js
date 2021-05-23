@@ -22,8 +22,6 @@ function geoFindMe() {
 	const lat = document.querySelector('#lat');
 	const lng = document.querySelector('#lng');
 
-	mapLink.href = '';
-
 	function success(position) {
 		const latitude = position.coords.latitude;
 		const longitude = position.coords.longitude;
