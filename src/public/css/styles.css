@@ -26,7 +26,7 @@ body h1 {
 	color: rgb(255, 255, 255);
 }
 
-body h6 {
+body h5 {
 	text-align: center;
 	font-family: 'Oswald', sans-serif;
 	margin-top: 50px;
@@ -146,6 +146,28 @@ header {
 	width: auto;
 }
 
+.btn-ubi {
+	width: 40%;
+	height: 40px;
+	color: rgb(252, 252, 252);
+	background-color: #c20111;
+	border: 1px solid #c20111;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.2s;
+	margin: 15px;
+}
+
+.btn-clicked {
+	width: 40%;
+	color: rgb(0, 0, 0);
+	background-color: #06b41d;
+	border: 1px solid #06b41d;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 15px;
+}
+
 .btn-lang {
 	width: 40%;
 	color: rgb(0, 10, 41);
@@ -232,8 +254,22 @@ li {
 	display: list-item;
 }
 
-input {
-	height: 15px;
+.form-group {
+	margin: auto;
+	padding: 2px;
+}
+
+.form-input {
+	font-family: 'Oswald', sans-serif;
+	outline: 0;
+	background: #f2f2f2;
+	width: 100%;
+	border-radius: 7px;
+	border: 1px solid #f2f2f2;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
 }
 
 .btn btn-danger {
@@ -681,4 +717,8 @@ tbody {
 	width: 250px;
 	margin: auto;
 	position: relative;
+}
+
+#datatable {
+	margin: auto;
 }
