@@ -2,11 +2,12 @@ const dotenv = require('dotenv');
 dotenv.config();
 const http = require('http');
 const app = require('./app');
+const { port } = require('./config');
 
 const server = http.createServer(app);
 
-server.listen(8090, () => {
-	console.log('Server is in port 8090');
+server.listen(port, () => {
+	console.log(`Server is in port ${port}`);
 });
 
 const socketIO = require('socket.io');
