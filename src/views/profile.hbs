@@ -12,7 +12,15 @@
 		<div class='container'>
 			<div id='map-template'></div>
 		</div>
-		<h6>Call history</h6>
+		<div class='container' id='coordinates' style='display:none;'>
+			{{#each history}}
+				{{#if lati}}
+					<p>{{lngi}}</p>
+					<h1>{{lati}}</h1>
+				{{/if}}
+			{{/each}}
+		</div>
+		<h5>Call history</h5>
 		<div class='container'>
 			<table id='datatable' class='table table-dark' style='width:100%'>
 				<thead>

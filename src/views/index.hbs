@@ -1,23 +1,14 @@
-{{! <main class="index">
-    <header class="masthead d-flex">
-        <div class="container text-center my-auto">
-            <h1 class="mb-1">MAMA DUCK</h1>
-            <h3 class="mb-5">
-                <em>Connect to network</em>
-            </h3>
-            <button class="btn btn-primary btn-lg" >
-            <a href="/profile">Connect</a>                
-            </button>
-        </div>
-        <div class="overlay"></div>
-    </header>
-</main> }}
 <div class='container p-9'>
 	<div class='row'>
 		<div class='col-md-6 mx-auto'>
 			<div class='card'>
 				<div class='card-body'>
-					<button class='btn btn-danger' id='find-me'>Permitir ubicacion</button>
+					<button
+						autofocus
+						class='btn-ubi'
+						id='find-me'
+						onclick='change_text()'
+					>Allow Location</button>
 					<a id='map-link' target='_blank'></a>
 					<h2>Location:</h2>
 					<div id='map-template'></div>
@@ -87,3 +78,7 @@
 		</div>
 	</div>
 </div>
+<script>
+	function change_text(){ document.getElementById("find-me").innerHTML =
+	"Location enabled";$("#find-me").addClass('btn-clicked'); };
+</script>
