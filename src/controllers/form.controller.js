@@ -6,23 +6,39 @@ formsCtrl.renderAddForm = (req, res) => {
 };
 
 formsCtrl.addForm = async (req, res) => {
-	let { emergency, lati, lngi } = req.body;
-	// status = true;
-	// active = status;
-	const node = 1;
 	const cookies = req.cookies.cookieName;
-	if (emergency != undefined) {
-		emergency = emergency.toString();
+	const sentForm = await pool.query(
+		'SELECT * FROM history WHERE cookies = ?',
+		[cookies]
+	);
+	if (sentForm[0] != undefined) {
+		if (cookies == sentForm[0].cookies) {
+			let { emergency } = req.body;
+
+			const newForm = {
+				emergency,
+			};
+			await pool.query('UPDATE history set ? WHERE cookies = ?', [
+				newForm,
+				cookies,
+			]);
+		}
+	} else {
+		let { emergency, lati, lngi } = req.body;
+		const node = 1;
+		if (emergency != undefined) {
+			emergency = emergency.toString();
+		}
+		const newForm = {
+			emergency,
+			node,
+			cookies,
+			lati,
+			lngi,
+		};
+		await pool.query('INSERT INTO history set ?', newForm);
 	}
-	const newForm = {
-		emergency,
-		node,
-		cookies,
-		// active,
-		lati,
-		lngi,
-	};
-	await pool.query('INSERT INTO history set ?', newForm);
+
 	res.redirect('/form');
 };
 
@@ -47,9 +63,7 @@ formsCtrl.renderEditForm = async (req, res) => {
 
 formsCtrl.editForm = async (req, res) => {
 	const cookies = req.cookies.cookieName;
-	const cookie = await pool.query('SELECT * FROM history WHERE cookies = ?', [
-		cookies,
-	]);
+
 	let { place, need, message } = req.body;
 	const node = 1;
 	if (need != undefined) {
