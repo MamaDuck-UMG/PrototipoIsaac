@@ -29,7 +29,7 @@ body h1 {
 body h5 {
 	text-align: center;
 	font-family: 'Oswald', sans-serif;
-	margin-top: 50px;
+	margin-top: 5px;
 	font-size: 2.2rem;
 	padding-left: 5%;
 	padding-right: 5%;
@@ -379,8 +379,12 @@ footer {
 	margin: auto;
 }
 thead {
-	background-color: rgb(0, 37, 46);
-	color: rgb(224, 224, 224);
+	background-color: rgb(0, 4, 43);
+	color: rgb(255, 255, 255);
+}
+
+.sorting {
+	color: white;
 }
 
 th {
@@ -394,7 +398,7 @@ td {
 	border-radius: 10px;
 }
 tbody {
-	color: rgb(255, 247, 235);
+	color: rgb(207, 207, 207);
 	background-color: rgb(49, 49, 49);
 }
 
@@ -719,6 +723,24 @@ tbody {
 	position: relative;
 }
 
+#map2 {
+	height: 350px;
+	width: 750px;
+	margin: auto;
+
+	position: relative;
+}
+#map3 {
+	height: 350px;
+	width: 750px;
+	margin: auto;
+	padding-top: 1rem;
+	position: relative;
+}
+
 #datatable {
 	margin: auto;
+}
+label {
+	color: white;
 }
